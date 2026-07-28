@@ -1,0 +1,54 @@
+/* Aragocor Minerals — Design System: colors & type
+ *
+ * Reconstructed design-system stylesheet. The original _ds/ folder was missing
+ * from the repository upload; this restores the font-family tokens, motion easing,
+ * and shadow tokens that the pages consume but never declare inline, and loads the
+ * three brand typefaces documented in CLAUDE.md:
+ *   Source Serif 4 (headings) · Geist (body) · JetBrains Mono (labels & data)
+ *
+ * Color tokens are re-declared here as a fallback; every page also declares them
+ * inline in its own <head>, which takes precedence.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Type */
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans:  "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:  "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Palette */
+  --ink:   #0E3540;
+  --tide:  #526A70;
+  --shore: #7C97A0;
+  --sand:  #D7C59C;
+  --bone:  #F7F4ED;
+  --paper: #FFFFFF;
+  --root:  #49613C;
+  --leaf:  #49613C;
+
+  /* Foreground / borders */
+  --fg-1: #0E3540;
+  --fg-2: #526A70;
+  --fg-3: #8A9AA0;
+  --border: #C7CBC6;
+  --border-strong: #A9B0AC;
+
+  /* Ink opacity scale */
+  --ink-04: rgba(14, 53, 64, 0.04);
+  --ink-08: rgba(14, 53, 64, 0.08);
+  --ink-12: rgba(14, 53, 64, 0.12);
+  --ink-20: rgba(14, 53, 64, 0.20);
+  --ink-40: rgba(14, 53, 64, 0.40);
+  --ink-60: rgba(14, 53, 64, 0.60);
+  --ink-80: rgba(14, 53, 64, 0.80);
+
+  /* Motion */
+  --ease-tide: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Elevation */
+  --shadow-1: 0 1px 2px rgba(14, 53, 64, 0.06), 0 2px 8px rgba(14, 53, 64, 0.06);
+  --shadow-2: 0 4px 12px rgba(14, 53, 64, 0.10), 0 12px 32px rgba(14, 53, 64, 0.08);
+  --shadow-3: 0 12px 32px rgba(14, 53, 64, 0.14), 0 24px 64px rgba(14, 53, 64, 0.12);
+}
