@@ -119,7 +119,10 @@
   
   <div class="r-shell r-grid-2" style="max-width: 1440px; margin: 0 auto; padding: 0 40px 96px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start;">
 
-    
+
+    <!-- TODO (required before go-live): replace YOUR_FORM_ID with a real Formspree
+         form ID (https://formspree.io -> your form -> endpoint), or swap the action
+         for another handler. Until this is set, submissions will fail. -->
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 40px; box-shadow: var(--shadow-1);">
       <div class="r-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
         <div><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Full name</label><input class="fld" type="text" placeholder="Jane Rivera" name="name" required></div>
