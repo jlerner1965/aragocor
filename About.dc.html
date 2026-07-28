@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/aragocor-minerals-design-system-6cd5605f-b1a2-4c76-af9e-ea4efe576a33/colors_and_type.css">
+<script src="_ds/aragocor-minerals-design-system-6cd5605f-b1a2-4c76-af9e-ea4efe576a33/_ds_bundle.js"></script>
+<style>:root{--ink:#0E3540;--tide:#526A70;--shore:#7C97A0;--sand:#D7C59C;--bone:#F7F4ED;--paper:#FFFFFF;--root:#49613C;--leaf:#49613C;--fg-1:#0E3540;--fg-2:#526A70;--fg-3:#8A9AA0;--border:#C7CBC6;--border-strong:#A9B0AC;--ink-04:rgba(14,53,64,0.04);--ink-08:rgba(14,53,64,0.08);--ink-12:rgba(14,53,64,0.12);--ink-20:rgba(14,53,64,0.20);--ink-40:rgba(14,53,64,0.40);--ink-60:rgba(14,53,64,0.60);--ink-80:rgba(14,53,64,0.80);}</style>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bone); }
+  a { border-bottom: none; }
+  .btn-ar { transition: all 220ms var(--ease-tide); cursor: pointer; }
+  .btn-ar:active { transform: scale(0.97); }
+  .btn-bone:hover { background: rgba(247,244,237,0.88) !important; }
+  .btn-boneline:hover { border-color: var(--bone) !important; background: rgba(247,244,237,0.08) !important; }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-sans); color: var(--ink); background: var(--bone); min-height: 100vh;">
+  <dc-import name="SiteNav" active="about" hint-size="100%,74px"></dc-import>
+
+  <!-- HEADER -->
+  <div style="max-width: 1440px; margin: 0 auto; padding: 88px 40px 56px;">
+    <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">About Aragocor Minerals</div>
+    <h1 style="font-family: var(--font-serif); font-size: 64px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; margin: 16px 0 24px; max-width: 880px;">Bahamas-born. Ocean-formed. Industry-trusted.</h1>
+    <p style="font-size: 19px; line-height: 1.55; max-width: 680px; color: var(--fg-2); margin: 0;">Since 1998, we've supplied one thing exceptionally well: clean, reactive, ocean-derived aragonite — from the ooid banks of The Bahamas to growers, plants, and processors around the world.</p>
+  </div>
+
+  <!-- IMAGE + STORY -->
+  <div style="max-width: 1440px; margin: 0 auto; padding: 0 40px 40px;">
+    <div style="aspect-ratio: 21/7; border-radius: 8px; position: relative; overflow: hidden; background: url('assets/about-origin.jpg') center/cover;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(14,53,64,0.5) 100%);"></div>
+      <div style="position: absolute; bottom: 28px; left: 32px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: rgba(247,244,237,0.85);">OOID BANKS · THE BAHAMAS</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div style="max-width: 1440px; margin: 0 auto; padding: 56px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <div style="border-top: 1.5px solid var(--ink); padding-top: 24px;">
+          <div style="font-family: var(--font-serif); font-size: 52px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; margin-bottom: 12px;">{{ s.value }}</div>
+          <div style="font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px;">{{ s.label }}</div>
+          <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.04em;">{{ s.sub }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- STORY TWO COL -->
+  <div style="background: var(--sand); background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.5), transparent 40%);">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 96px 40px; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px;">
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">Our story</div>
+        <h2 style="font-family: var(--font-serif); font-size: 40px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; margin: 14px 0 0;">One deposit, done right.</h2>
+      </div>
+      <div>
+        <p style="font-size: 16px; line-height: 1.7; color: var(--ink); margin: 0 0 20px;">Aragocor began with a simple observation: the same ocean-formed carbonate that builds Bahamian beaches is purer and more reactive than most of what the world digs out of the ground. Where others saw sand, we saw the cleanest agricultural calcium available.</p>
+        <p style="font-size: 15.5px; line-height: 1.7; color: var(--fg-2); margin: 0 0 20px;">We built a business around doing one material well — harvesting gently, verifying honestly, and publishing the numbers. No proprietary blends. No kiln. No asterisks. Just aragonite, graded and packed for the job in front of you.</p>
+        <p style="font-size: 15.5px; line-height: 1.7; color: var(--fg-2); margin: 0;">Today that material moves by the bag and by the container load — into fields, water plants, glass furnaces, sports turf, and cultivation media across North America, Europe, and the Caribbean.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div style="max-width: 1440px; margin: 0 auto; padding: 96px 40px;">
+    <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">What we hold to</div>
+    <h2 style="font-family: var(--font-serif); font-size: 44px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.08; margin: 14px 0 56px; max-width: 640px;">Three principles, no exceptions.</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="3">
+        <div style="border-top: 1.5px solid var(--ink); padding-top: 26px;">
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); margin-bottom: 18px;">{{ v.n }}</div>
+          <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 12px; line-height: 1.15;">{{ v.title }}</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: var(--fg-2); margin: 0;">{{ v.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="position: relative; overflow: hidden; background: radial-gradient(ellipse at 25% 50%, #294C57 0%, #0E3540 72%);">
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 88px 40px; text-align: center;">
+      <h2 style="font-family: var(--font-serif); font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.06; color: var(--bone); margin: 0 auto 20px; max-width: 720px;">Let's supply your next solution.</h2>
+      <p style="font-size: 17px; color: rgba(247,244,237,0.8); max-width: 540px; margin: 0 auto 32px;">From a single sample to a standing container order — start a conversation with our team.</p>
+      <div style="display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+        <a href="Contact.dc.html" class="btn-ar btn-bone" style="background: var(--bone); color: var(--ink); height: 52px; padding: 0 28px; border-radius: 4px; font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; border: none;">Contact us</a>
+        <a href="Products.dc.html" class="btn-ar btn-boneline" style="background: transparent; color: var(--bone); height: 52px; padding: 0 28px; border-radius: 4px; font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; border: 1px solid rgba(247,244,237,0.4);">Browse products</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,440px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      stats: [
+        { value: '1998', label: 'Founded', sub: 'Nassau, The Bahamas' },
+        { value: '≥ 98%', label: 'CaCO₃ purity', sub: 'Verified every lot' },
+        { value: '9', label: 'Industries served', sub: 'Ag to glass to energy' },
+        { value: '3', label: 'Continents shipped', sub: 'NA · EU · Caribbean' },
+      ],
+      values: [
+        { n: '01', title: 'One material, mastered', body: 'We supply aragonite and nothing else. Depth over breadth — we know this mineral better than anyone selling ten others.' },
+        { n: '02', title: 'The spec is the spec', body: 'Third-party analysis on every lot, methods cited, published openly. If it is not in the COA, we do not claim it.' },
+        { n: '03', title: 'Take gently, give back', body: 'We harvest a renewing deposit with low-impact methods and steward the reefs and seagrass around it.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

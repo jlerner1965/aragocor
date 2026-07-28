@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/aragocor-minerals-design-system-6cd5605f-b1a2-4c76-af9e-ea4efe576a33/colors_and_type.css">
+<script src="_ds/aragocor-minerals-design-system-6cd5605f-b1a2-4c76-af9e-ea4efe576a33/_ds_bundle.js"></script>
+<style>:root{--ink:#0E3540;--tide:#526A70;--shore:#7C97A0;--sand:#D7C59C;--bone:#F7F4ED;--paper:#FFFFFF;--root:#49613C;--leaf:#49613C;--fg-1:#0E3540;--fg-2:#526A70;--fg-3:#8A9AA0;--border:#C7CBC6;--border-strong:#A9B0AC;--ink-04:rgba(14,53,64,0.04);--ink-08:rgba(14,53,64,0.08);--ink-12:rgba(14,53,64,0.12);--ink-20:rgba(14,53,64,0.20);--ink-40:rgba(14,53,64,0.40);--ink-60:rgba(14,53,64,0.60);--ink-80:rgba(14,53,64,0.80);}</style>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bone); }
+  a { border-bottom: none; }
+  .icard:hover { box-shadow: var(--shadow-2); border-color: var(--ink-20); }
+  .icard:hover .icard-img { transform: scale(1.04); }
+  .btn-ar { transition: all 220ms var(--ease-tide); cursor: pointer; }
+  .btn-ar:active { transform: scale(0.97); }
+  .btn-ink:hover { background: var(--tide) !important; }
+  .btn-outline:hover { border-color: var(--ink) !important; background: var(--ink-04) !important; }
+  .btn-boneline:hover { border-color: var(--bone) !important; background: rgba(247,244,237,0.08) !important; }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-sans); color: var(--ink); background: var(--bone); min-height: 100vh;">
+  <dc-import name="SiteNav" active="industries" hint-size="100%,74px"></dc-import>
+
+  <!-- HEADER -->
+  <div style="position: relative; overflow: hidden; background: url('assets/industries-platform.jpg') center 55% / cover;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,53,64,0.88) 0%, rgba(14,53,64,0.62) 55%, rgba(14,53,64,0.28) 100%);"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 96px 40px 88px;">
+      <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,237,0.65);">Industries &amp; applications</div>
+      <h1 style="font-family: var(--font-serif); font-size: 64px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; margin: 16px 0 24px; max-width: 900px; color: var(--bone);">One mineral. Every room it walks into.</h1>
+      <p style="font-size: 19px; line-height: 1.55; max-width: 680px; color: rgba(247,244,237,0.86); margin: 0;">From row-crop calcium to glass batch to reef restoration — aragonite's purity, reactivity, and clean particle profile solve problems in markets that mined limestone can't reach. Nine of them, below.</p>
+    </div>
+  </div>
+
+  <!-- INDUSTRY CARDS -->
+  <div style="max-width: 1440px; margin: 0 auto; padding: 64px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <sc-for list="{{ industries }}" as="ind" hint-placeholder-count="9">
+        <div class="icard" style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-1); transition: box-shadow 220ms var(--ease-tide), border-color 220ms var(--ease-tide); display: flex; flex-direction: column;">
+          <div style="aspect-ratio: 16 / 10; overflow: hidden; position: relative;">
+            <div class="icard-img" style="position: absolute; inset: 0; background: {{ ind.bg }}; transition: transform 420ms var(--ease-tide);"></div>
+            <div style="position: absolute; inset: 0; opacity: 0.12; mix-blend-mode: overlay; background-image: repeating-radial-gradient(circle at 0 0, rgba(255,255,255,0.4) 0, rgba(255,255,255,0) 2px); background-size: 3px 3px;"></div>
+            <div style="position: absolute; top: 16px; left: 16px;"><span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--bone); background: rgba(14,53,64,0.55); padding: 5px 10px; border-radius: 999px;">{{ ind.tag }}</span></div>
+          </div>
+          <div style="padding: 26px; display: flex; flex-direction: column; flex: 1;">
+            <h3 style="font-family: var(--font-serif); font-size: 24px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 10px; line-height: 1.12;">{{ ind.title }}</h3>
+            <p style="font-size: 14px; line-height: 1.55; color: var(--fg-2); margin: 0 0 18px;">{{ ind.body }}</p>
+            <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid var(--ink-08); display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--tide); letter-spacing: 0.02em;">{{ ind.spec }}</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--fg-3);">{{ ind.grade }}</span>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- SELECTION HELP BAND -->
+  <div style="background: var(--sand); background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.5), transparent 40%), radial-gradient(circle at 82% 72%, rgba(14,53,64,0.05), transparent 42%);">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;">
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">Not sure which grade</div>
+        <h2 style="font-family: var(--font-serif); font-size: 40px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.08; margin: 14px 0 20px;">Specified by analysis, packed to plan.</h2>
+        <p style="font-size: 15.5px; line-height: 1.6; color: var(--fg-2); margin: 0 0 28px; max-width: 460px;">Send us a soil report, a batch spec, or a target particle band. Our team matches the grade, buffers the pH math, and quotes against your tonnage — usually inside a business day.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="Contact.dc.html" class="btn-ar btn-ink" style="background: var(--ink); color: var(--bone); height: 48px; padding: 0 24px; border-radius: 4px; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; border: none;">Request a quote</a>
+          <a href="Technical.dc.html" class="btn-ar btn-outline" style="background: transparent; color: var(--ink); height: 48px; padding: 0 24px; border-radius: 4px; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-strong);">Download bulk catalog</a>
+        </div>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr;">
+          <div style="padding: 16px 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink); text-transform: uppercase;">Grade</div>
+          <div style="padding: 16px 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink); text-transform: uppercase;">Particle</div>
+          <div style="padding: 16px 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink); text-transform: uppercase;">Pack</div>
+          <sc-for list="{{ grades }}" as="g" hint-placeholder-count="5">
+            <div style="padding: 15px 20px; font-size: 14px; font-weight: 500; border-top: 1px solid var(--ink-08);">{{ g.name }}</div>
+            <div style="padding: 15px 20px; font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">{{ g.size }}</div>
+            <div style="padding: 15px 20px; font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">{{ g.pack }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="position: relative; overflow: hidden; background: radial-gradient(ellipse at 25% 50%, #294C57 0%, #0E3540 72%);">
+    <div style="position: absolute; inset: 0; opacity: 0.5; background: radial-gradient(circle at 85% 30%, rgba(107,163,181,0.25), transparent 45%);"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 88px 40px; text-align: center;">
+      <h2 style="font-family: var(--font-serif); font-size: 48px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; color: var(--bone); margin: 0 auto 20px; max-width: 760px;">Specifying a custom blend?</h2>
+      <p style="font-size: 17px; color: rgba(247,244,237,0.8); max-width: 560px; margin: 0 auto 32px;">Send your target spec. We'll quote against your tonnage and ship inside 14 days.</p>
+      <div style="display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+        <a href="Contact.dc.html" class="btn-ar" style="background: var(--bone); color: var(--ink); height: 52px; padding: 0 28px; border-radius: 4px; font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; border: none;">Request a quote</a>
+        <a href="Contact.dc.html" class="btn-ar btn-boneline" style="background: transparent; color: var(--bone); height: 52px; padding: 0 28px; border-radius: 4px; font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; border: 1px solid rgba(247,244,237,0.4);">Order a sample</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,440px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      industries: [
+        { title: 'Agriculture', tag: 'ROW CROP · OMRI', body: 'OMRI-listed calcium for pH correction and nutrition. The orthorhombic crystal structure delivers faster availability than calcite, with fine particles that aerate soil and hold moisture.', spec: '≥ 98% CaCO₃', grade: 'AG-CAL', bg: "url('assets/ind-agriculture.jpg') center/cover" },
+        { title: 'Aquarium & aquaculture', tag: 'MARINE', body: 'Gentle alkalinity and pH buffering for recirculating and pond systems, plus bioavailable calcium for shellfish, coral, and reef restoration.', spec: 'pH 8.2 ± 0.1', grade: 'AQ-CAL', bg: "url('assets/ind-aquaculture.jpg') center/cover" },
+        { title: 'Energy', tag: 'ENERGY MATERIALS', body: 'High-purity CaCO₃ precursor for calcium-based intermediates and battery / energy-materials research, backed by a single-origin, traceable supply.', spec: 'Single-origin', grade: 'EN-CAL', bg: "url('assets/ind-energy.jpg') center/cover" },
+        { title: 'Construction', tag: 'CEMENT & CONCRETE', body: 'Fine CaCO₃ filler for clinker substitution, ready-mix, and precast — supporting embodied-carbon reduction and workability in high-performance mixes.', spec: '1.42 g/cm³', grade: 'CN-CAL', bg: "url('assets/ind-construction.jpg') center/cover" },
+        { title: 'Glass', tag: 'BATCH FEED', body: 'Low-iron, optical-grade CaCO₃ for container, flat, solar, and specialty glass. High whiteness and predictable batch chemistry, lot after lot.', spec: '≤ 0.04% Fe₂O₃', grade: 'GL-CAL', bg: "url('assets/ind-glass.jpg') center/cover" },
+        { title: 'Environmental', tag: 'REMEDIATION', body: 'Buffering chemistry for acid mine drainage, calcium amendment for degraded soils and wetlands, and reef-friendly substrate for restoration.', spec: '< 2 ppm Pb', grade: 'EV-CAL', bg: "url('assets/ind-environmental.jpg') center/cover" },
+        { title: 'Ground calcium carbonate', tag: 'GCC FILLER', body: 'Fine-ground and micronized oolitic GCC for plastics, coatings, and paper — high whiteness, low abrasion, and custom particle sizing on request.', spec: 'D₅₀ to spec', grade: 'GCC', bg: "url('assets/ind-gcc.jpg') center/cover" },
+        { title: 'Water treatment', tag: 'MUNICIPAL', body: 'Natural buffering toward neutral, phosphorus capture, and heavy-metal binding — a drop-in alternative to conventional limestone media.', spec: 'pH 8.2 ± 0.1', grade: 'WT-CAL', bg: "url('assets/ind-water.jpg') center/cover" },
+        { title: 'Horticulture', tag: 'TURF & LANDSCAPE', body: 'Moisture-retentive infill for cooler surfaces, plus calcium for healthy root zones across golf greens, sports fields, and premium landscaping.', spec: '0.2–0.5 mm', grade: 'HT-CAL', bg: "url('assets/ind-horticulture.jpg') center/cover" },
+      ],
+      grades: [
+        { name: 'Sand-grade', size: '0.2–0.5 mm', pack: 'Bulk / ton' },
+        { name: 'Granular', size: '0.5–2.0 mm', pack: 'Super-sack' },
+        { name: 'Pelletized', size: '2–4 mm', pack: '50 lb bag' },
+        { name: 'Fine ground', size: '< 0.1 mm', pack: 'Bulk / bag' },
+        { name: 'Custom', size: 'To spec', pack: 'To plan' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
