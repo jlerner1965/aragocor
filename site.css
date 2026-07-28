@@ -1,0 +1,81 @@
+/* Responsive layer for the static Aragocor build.
+   The design ships fixed-width inline styles at 1440px; these rules use
+   !important to override inline declarations at narrow viewports. */
+
+html { -webkit-text-size-adjust: 100%; }
+img, video { max-width: 100%; }
+
+.r-tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.r-tablewrap > table { min-width: 520px; }
+
+/* ---- tablet ---- */
+@media (max-width: 1100px) {
+  .r-shell { padding-left: 28px !important; padding-right: 28px !important; }
+  .r-grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-h1 { font-size: 46px !important; }
+  .r-h2 { font-size: 34px !important; }
+}
+
+/* ---- nav ---- */
+@media (max-width: 1040px) {
+  .dc-sitenav > div > div {
+    height: auto !important;
+    padding: 12px 20px !important;
+    flex-wrap: wrap !important;
+    row-gap: 12px !important;
+  }
+  .dc-sitenav > div > div > div:first-child {
+    gap: 18px !important;
+    flex-wrap: wrap !important;
+  }
+  .dc-sitenav .navlink { font-size: 13.5px !important; }
+}
+@media (max-width: 620px) {
+  .dc-sitenav > div > div > div:first-child > div { gap: 14px !important; }
+  .dc-sitenav .navlink { font-size: 13px !important; }
+  .dc-sitenav img { height: 34px !important; }
+}
+
+/* ---- mobile ---- */
+@media (max-width: 820px) {
+  .r-shell {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  .r-grid-2, .r-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .r-data { font-size: 13px !important; }
+  .r-hero { height: auto !important; min-height: 460px !important; }
+  .r-hero > div:last-child { padding-top: 72px !important; padding-bottom: 72px !important; }
+  .r-h1 { font-size: 36px !important; line-height: 1.1 !important; }
+  .r-h2 { font-size: 28px !important; line-height: 1.15 !important; }
+}
+
+@media (max-width: 520px) {
+  .r-h1 { font-size: 30px !important; }
+  .r-h2 { font-size: 24px !important; }
+}
+
+/* ---- technical data sheet: screen vs print ---- */
+.tds-bar {
+  background: #0d141c;
+  padding: 14px 24px;
+  font: 500 14px/1 "Geist", -apple-system, system-ui, sans-serif;
+}
+.tds-bar a { color: #F7F4ED; text-decoration: none; }
+.tds-bar a:hover { color: #D7C59C; }
+.tds-sheet {
+  max-width: 8.5in;
+  margin: 32px auto;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(14, 42, 51, 0.12);
+}
+@media print {
+  .tds-bar { display: none; }
+  .tds-sheet { margin: 0; box-shadow: none; max-width: none; }
+  @page { size: letter; margin: 0; }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "aragocor-minerals-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Aragocor Minerals marketing site — plain static HTML",
+  "scripts": {
+    "dev": "npx --yes serve . -l 8080",
+    "start": "npx --yes serve . -l 8080"
+  }
+}

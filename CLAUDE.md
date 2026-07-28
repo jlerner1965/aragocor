@@ -1,126 +1,70 @@
-# CLAUDE.md
+# Working in this repo
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Plain static HTML site. No framework, no bundler, no runtime JS. Edit the `.html` files directly — that is the intended workflow.
 
-## Repository layout — read this first
+## Two things to know before editing
 
-This git repository does **not** contain the site source directly. The entire
-project is checked in as a single archive, `aragocor-minerals-website-code.zip`,
-at the repo root. Before doing any work:
+**1. Styling is inline.** Every element carries a `style=""` attribute. There is no Tailwind, no CSS modules, no utility classes. Colors come from CSS custom properties defined in `_ds/aragocor-minerals-design-system-*/colors_and_type.css` and re-declared in a `:root` block in each page's `<head>`. Use the tokens, not raw hex:
+
+`--ink #0E3540` · `--tide #526A70` · `--shore #7C97A0` · `--sand #D7C59C` · `--bone #F7F4ED` · `--paper #FFFFFF` · `--root`/`--leaf #49613C`
+Type: `--font-serif` (Source Serif 4, headings) · `--font-sans` (Geist, body) · `--font-mono` (JetBrains Mono, labels and data)
+Also available: `--shadow-1/2/3`, `--ease-tide`, `--border`, `--border-strong`, `--fg-1/2/3`, `--ink-04` through `--ink-80`.
+
+**2. The nav and footer are duplicated across all eight pages.** They were shared components in the original design and got inlined during the static build. If you change one, change all eight, or regenerate (below). Nav markup lives inside `<div class="dc-sitenav">`, footer inside `<div class="dc-sitefooter">`. The active-page underline is a bare `<div>` with `height: 2px; background: var(--bone)` — present only on the current page's nav item.
+
+## Responsive
+
+`site.css` is the only hand-written stylesheet. It overrides inline styles at narrow viewports using `!important` (author `!important` beats inline declarations). Elements are tagged during the build:
+
+- `r-shell` — the 1440px page container; reduced padding on mobile
+- `r-grid-2` / `r-grid-3` — card and content grids; collapse to one column
+- `r-data` — data-table grids; font shrinks but columns stay
+- `r-h1` / `r-h2` — headings; font-size steps down
+- `r-hero` — fixed-height hero blocks; become auto-height
+- `r-tablewrap` — wrapper around `<table>`; scrolls horizontally
+
+If you add markup by hand, add the matching class or it will not respond.
+
+## Regenerating from the design source
+
+`_source/` holds the original Claude Design `.dc.html` templates and `build.mjs`, the transpiler that produced these pages. It resolves `<dc-import>`, expands `<sc-for>` and `<sc-if>`, evaluates the `renderVals()` data blocks, applies the responsive tagging, wires the contact form, patches the data-sheet nav bar, and emits static HTML.
 
 ```bash
-unzip aragocor-minerals-website-code.zip -d <workdir>
+node _source/build.mjs _source .
 ```
 
-All paths below (`app/`, `worker/`, `db/`, `scripts/`, etc.) refer to the
-contents of that archive, not the repo root. If you make changes, edit the
-extracted files and re-zip (or otherwise sync) back into
-`aragocor-minerals-website-code.zip` at the repo root — that archive is the
-artifact this repo actually tracks. The archive also contains a stale `dist/`
-(previous build output) and `.wrangler/` (local Wrangler state); treat both as
-disposable build artifacts, not source.
+The build is idempotent — every transformation lives in `build.mjs`, so regenerating reproduces the shipped pages exactly. It **overwrites** the eight page files, so hand edits to them are lost. Pick one lane: either edit the HTML directly and stop regenerating, or edit `_source/` and always regenerate.
 
-## What this is
+For a site this size, editing the HTML directly is usually the better path. The `_source/` route earns its keep only if the content lists (industry cards, spec tables, rate tables) need frequent bulk changes.
 
-A single-page marketing site for **Aragocor Minerals** (bulk oolitic
-aragonite / calcium carbonate supplier), built on **vinext**
-(https://github.com/cloudflare/vinext) — a Next.js App Router runtime that
-deploys to a **Cloudflare Worker** instead of a Node server. This is a
-generated "Sites" project from an OpenAI ChatGPT/Codex app-builder platform:
-note `.openai/hosting.json`, the `codex-preview` metadata tag in
-`app/layout.tsx`, the dispatch-owned "Sign in with ChatGPT" (SIWC) routes, and
-the `.sites-runtime/` sandboxed environment used by the lifecycle scripts.
-Optional Cloudflare D1 (SQLite) + Drizzle ORM support is scaffolded but unused
-by default.
+### The build verifies itself
 
-## Commands (run from the extracted project root)
+`build.mjs` runs a `verify()` pass on every page and exits non-zero on failure. It checks:
 
-- `npm run install:ci` — the **only** supported install path. Runs
-  `scripts/install-ci.sh`: a single non-retrying `npm ci`, guarded by `flock`
-  against concurrent installs, that preflights and integrity-verifies the
-  `vinext` tarball pinned in `package-lock.json` before installing. Do **not**
-  run `npm install` directly.
-- `npm run dev` — start the Vite/vinext dev server (Wrangler-backed).
-- `npm run build` — runs `scripts/build-verified.sh`: a time-bounded
-  `vinext build` followed by artifact validation.
-- `npm run start` — run the built Worker via `vinext start`.
-- `npm test` — `npm run build` then `node --test tests/rendered-html.test.mjs`
-  (there is one test file; it imports the **built** `dist/server/index.js`
-  Worker and asserts it serves HTML with the expected preview metadata). To
-  run just that check after a build, use
-  `node --test tests/rendered-html.test.mjs`, or narrow further with
-  `node --test --test-name-pattern="renders development preview metadata" tests/rendered-html.test.mjs`.
-- `npm run validate:artifact` — re-checks an already-built `dist/` (worker has
-  an ESM `default.fetch` export, `dist/.openai/hosting.json` is valid JSON)
-  without rebuilding. Use for diagnosing a failed remote build, not routinely.
-- `npm run lint` — ESLint (`eslint-config-next` core-web-vitals + typescript).
-- `npm run db:generate` — `drizzle-kit generate`, only needed after editing
-  `db/schema.ts`.
+- `<style>` and `</style>` balance **in the head**
+- `<div>` / `</div>` balance in the body
+- no unresolved `{{ }}` bindings or `sc-for` / `sc-if` / `dc-import` tags
+- at least 500 characters of visible text
 
-All of the above scripts (except `dev`/`start`, which are invoked directly)
-re-exec themselves through `scripts/sites-env.sh` if `SITES_ENV_READY` isn't
-set, which redirects `HOME`, the npm cache, `TMPDIR`, and Wrangler's log path
-into a project-local `.sites-runtime/` directory. Linux with `flock`, `curl`,
-GNU `timeout`, and `sha256sum` is required; these scripts are not portable to
-macOS. Install/build timeouts are overridable via `SITES_INSTALL_TIMEOUT`,
-`SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, `SITES_BUILD_KILL_AFTER`.
-Per the README, the remote Sites builder runs `npm run build` on every pushed
-commit — don't treat local install/build as a routine pre-commit step.
+That last two matter more than they look. An earlier version of this build deduplicated head fragments line by line, which silently dropped a repeated `</style>`. The unclosed `<style>` then swallowed the entire body as CSS text and every page rendered as an empty cream rectangle — valid HTML, correct background color, zero content. Grepping for page text still found it, because the text was in the file; it just wasn't reachable. If you touch the head assembly, re-run the build and confirm it exits 0, and sanity-check with a parser rather than a grep:
 
-## Architecture
+```bash
+python3 -c "
+from html.parser import HTMLParser
+class P(HTMLParser):
+    skip=0; text=[]
+    def handle_starttag(s,t,a):
+        if t in ('style','script'): s.skip+=1
+    def handle_endtag(s,t):
+        if t in ('style','script'): s.skip=max(0,s.skip-1)
+    def handle_data(s,d):
+        if not s.skip and d.strip(): s.text.append(d.strip())
+p=P(); p.feed(open('index.html').read()); print(len(' '.join(p.text)), 'chars renderable')
+"
+```
 
-- **`app/page.tsx`** — the entire public site as one client component
-  (`"use client"`). Content (industries, features, specs, process steps) is
-  authored as inline data arrays and mapped over; markup is dense/single-line
-  by convention. `app/layout.tsx` sets fonts (Geist via `next/font/google`),
-  page metadata, and favicon.
-- **`app/globals.css`** — hand-rolled design system (custom properties,
-  semantic classes like `.hero`, `.cards`, `.specs`). Tailwind is imported
-  (`@import "tailwindcss"`) but the page does not use Tailwind utility
-  classes — follow the existing custom-class convention rather than
-  introducing utility classes.
-- **`app/chatgpt-auth.ts`** — "Sign in with ChatGPT" (SIWC) helpers:
-  `getChatGPTUser()` (optional identity from the
-  `oai-authenticated-user-email` / `-full-name` request headers),
-  `requireChatGPTUser(returnTo)` (redirect-if-anonymous), and
-  `chatGPTSignInPath`/`chatGPTSignOutPath`. The platform's dispatch layer
-  owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, and `/callback` —
-  never implement app routes at those paths. SIWC only proves identity, not
-  workspace membership; enforce authorization separately if needed. Pages
-  using these helpers must set `export const dynamic = "force-dynamic"`
-  since they depend on per-request headers.
-- **`worker/index.ts`** — the actual Cloudflare Worker entry point (not a
-  Node server). Intercepts `/_vinext/image` for image optimization
-  (`vinext/server/image-optimization`) and otherwise delegates to vinext's
-  `app-router-entry` handler, which runs the Next.js App Router.
-- **`db/index.ts`** / **`db/schema.ts`** — optional D1 + Drizzle wiring.
-  `getDb()` reads the `DB` binding from `cloudflare:workers` env and throws if
-  it's unset; `schema.ts` is intentionally empty by default. `examples/d1/`
-  shows the opt-in pattern (a `notes` table + a `GET`/`POST` API route under
-  `app/api/notes/`) to copy in when a site actually needs persistence.
-- **`build/sites-vite-plugin.ts`** — a Vite plugin (`sites()`) that runs on
-  `closeBundle` and copies `.openai/hosting.json` and the `drizzle/`
-  migrations directory into `dist/.openai/`, so the deployable artifact
-  carries its own hosting manifest and migrations.
-- **`vite.config.ts`** — wires the `vinext()`, `sites()`, and Cloudflare
-  (`@cloudflare/vite-plugin`) Vite plugins together. D1/R2 Wrangler bindings
-  are derived from `.openai/hosting.json` (`d1`/`r2` fields, both nullable);
-  when set, only the relevant binding is added to the local Wrangler
-  simulation. `.openai/hosting.json` is a per-deployment manifest injected by
-  the hosting platform — it is not present in this source snapshot and must
-  exist for `vite.config.ts` to load.
-- **`drizzle.config.ts`** — SQLite dialect config for `drizzle-kit`, schema at
-  `db/schema.ts`, migrations output to `drizzle/`.
-- **`scripts/`** — the install/build/validate lifecycle described above,
-  plus `sites-env.sh`, the shared environment shim every other script
-  re-execs through.
+## Don't
 
-## Conventions
-
-- Node `>=22.13.0`.
-- Never call `npm install` or `npm ci` directly — use `npm run install:ci`.
-- No `wrangler.jsonc`; Worker bindings are declared via `.openai/hosting.json`
-  and consumed in `vite.config.ts`.
-- Match `app/page.tsx`'s existing style (inline data arrays, terse single-line
-  JSX, semantic custom CSS classes) rather than reformatting or introducing a
-  different component structure when making content edits.
+- Add a build step or framework unless the site outgrows eight static pages.
+- Move pages into subdirectories without fixing the relative `assets/` and `_ds/` paths.
+- Hardcode hex values that already exist as tokens.

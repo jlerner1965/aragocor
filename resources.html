@@ -1,124 +1,443 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resource &amp; Knowledge Center | AragoCor Minerals</title>
-<meta name="description" content="Technical data sheets, safety data sheets, white papers, application guides, case studies, articles and glossary for AragoCor aragonite.">
-<link rel="canonical" href="resources.html">
-<link rel="icon" href="images/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technical Data & Resources — Aragocor Minerals</title>
+<meta name="description" content="Data sheets, safety documents, certificates of analysis, comparison briefs and application rate tables for oolitic aragonite.">
+<link rel="icon" href="assets/img/favicon.ico">
+<meta property="og:title" content="Technical Data & Resources — Aragocor Minerals">
+<meta property="og:description" content="Data sheets, safety documents, certificates of analysis, comparison briefs and application rate tables for oolitic aragonite.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero-ocean.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="_ds/aragocor-minerals-design-system-6cd5605f-b1a2-4c76-af9e-ea4efe576a33/colors_and_type.css">
+<style>:root{--ink:#0E3540;--tide:#526A70;--shore:#7C97A0;--sand:#D7C59C;--bone:#F7F4ED;--paper:#FFFFFF;--root:#49613C;--leaf:#49613C;--fg-1:#0E3540;--fg-2:#526A70;--fg-3:#8A9AA0;--border:#C7CBC6;--border-strong:#A9B0AC;--ink-04:rgba(14,53,64,0.04);--ink-08:rgba(14,53,64,0.08);--ink-12:rgba(14,53,64,0.12);--ink-20:rgba(14,53,64,0.20);--ink-40:rgba(14,53,64,0.40);--ink-60:rgba(14,53,64,0.60);--ink-80:rgba(14,53,64,0.80);}</style>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bone); }
+  a { border-bottom: none; }
+  .doc-row { transition: background 220ms var(--ease-tide); }
+  .doc-row:hover { background: var(--sand); }
+  .doc-row:hover .dl-icon { color: var(--ink) !important; }
+  .btn-ar { transition: all 220ms var(--ease-tide); cursor: pointer; }
+  .btn-ar:active { transform: scale(0.97); }
+  .btn-bone:hover { background: rgba(247,244,237,0.88) !important; }
+  .btn-boneline:hover { border-color: var(--bone) !important; background: rgba(247,244,237,0.08) !important; }
+</style>
+<style>
+  @keyframes menuIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .navlink { transition: color 220ms var(--ease-tide); }
+  .navlink:hover { color: var(--bone) !important; }
+  .dd-link:hover { background: var(--sand); }
+  .btn-ink:hover { background: var(--sand) !important; }
+</style>
+<style>
+  .foot-link { transition: color 220ms var(--ease-tide); }
+  .foot-link:hover { color: var(--bone) !important; }
+</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div id="top">
-<div id="header-mount" data-active="resources.html" data-transparent="true"></div>
-<main>
 
-<!-- ================= PAGE HERO ================= -->
-<section class="hero page-hero">
-  <!-- placeholder gradient: source "resources-documents.jpg" exceeded the design-sync read API's 256KB cap -->
-  <div class="hero-media" style="background:linear-gradient(135deg,#0b213d 0%,#0e4862 55%,#18b3bf 100%)"></div>
-  <div class="hero-scrim"></div>
-  <div class="container-wide hero-inner">
-    <p class="eyebrow">Resource &amp; Knowledge Center</p>
-    <h1 class="display-1 text-balance">The complete <span class="italic">technical library.</span></h1>
-    <p class="hero-desc text-pretty">Documents, articles and a glossary — built for procurement teams, materials scientists and plant engineers.</p>
-  </div>
-</section>
 
-<!-- ================= FILTER + GRID ================= -->
-<section class="container-wide" style="padding-block:3rem">
-  <div class="flex-between" style="align-items:center">
-    <div class="searchbar max-md" style="width:100%">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" placeholder="Search resources…" data-search="#resourceGrid">
-    </div>
-    <div class="filter-chips" data-filter-group="#resourceGrid">
-      <button class="filter-chip active" data-cat="All">All</button>
-      <button class="filter-chip" data-cat="Technical Data Sheet">Technical Data Sheet</button>
-      <button class="filter-chip" data-cat="Safety Data Sheet">Safety Data Sheet</button>
-      <button class="filter-chip" data-cat="White Paper">White Paper</button>
-      <button class="filter-chip" data-cat="Application Guide">Application Guide</button>
-      <button class="filter-chip" data-cat="Case Study">Case Study</button>
-      <button class="filter-chip" data-cat="Brochure">Brochure</button>
-      <button class="filter-chip" data-cat="Presentation">Presentation</button>
-    </div>
-  </div>
 
-  <div class="grid grid-3 mt-head" id="resourceGrid">
-    <div class="resource-card" data-card data-cat="Technical Data Sheet" data-text="Oolitic Aragonite Raw Material Technical Data all complete chemistry particle size physical properties"><div class="top"><div class="cat">Technical Data Sheet</div></div><h3>Oolitic Aragonite &mdash; Raw Material Technical Data</h3><p>Complete chemistry, particle size and physical properties of raw natural oolitic aragonite.</p><div class="ind">Industry &middot; All</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Technical Data Sheet" data-text="Aragonite for Glass Manufacturing Technical Data glass batch chemistry purity melt performance"><div class="top"><div class="cat">Technical Data Sheet</div></div><h3>Aragonite for Glass Manufacturing &mdash; Technical Data</h3><p>Batch chemistry, purity and melt performance specifications for glass producers.</p><div class="ind">Industry &middot; Glass</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Technical Data Sheet" data-text="Calcium Amendment Technical Data agriculture row-crop specialty"><div class="top"><div class="cat">Technical Data Sheet</div></div><h3>Calcium Amendment &mdash; Technical Data</h3><p>Specifications for aragonite as a calcium and pH amendment in row-crop and specialty agriculture.</p><div class="ind">Industry &middot; Agriculture</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Technical Data Sheet" data-text="Fertilizer Enhancer Technical Data blend guidance particle behavior nutrient interactions"><div class="top"><div class="cat">Technical Data Sheet</div></div><h3>Fertilizer Enhancer &mdash; Technical Data</h3><p>Blend guidance, particle behavior and nutrient interactions for fertilizer formulators.</p><div class="ind">Industry &middot; Agriculture</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Technical Data Sheet" data-text="Animal Feed Applications Technical Data calcium source purity safety data animal nutrition"><div class="top"><div class="cat">Technical Data Sheet</div></div><h3>Animal Feed Applications &mdash; Technical Data</h3><p>Calcium source specifications, purity and safety data for animal nutrition applications.</p><div class="ind">Industry &middot; Animal Feed</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Safety Data Sheet" data-text="Safety Data Sheet Natural Aragonite CaCO3 GHS-compliant"><div class="top"><div class="cat">Safety Data Sheet</div></div><h3>Safety Data Sheet &mdash; Natural Aragonite CaCO&#8323;</h3><p>GHS-compliant SDS for high-purity natural oolitic aragonite.</p><div class="ind">Industry &middot; All</div><div class="spacer"></div><a class="btn btn-outline" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="White Paper" data-text="Aragonite vs Limestone Technical Brief comparative analysis morphology reactivity purity"><div class="top"><div class="cat">White Paper</div></div><h3>Aragonite vs Limestone &mdash; Technical Brief</h3><p>Comparative analysis of morphology, reactivity, purity and industrial impact.</p><div class="ind">Industry &middot; All</div><div class="spacer"></div><a class="btn btn-primary" href="whitepaper-aragonite-vs-limestone.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:.4rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>View / Print PDF</a></div>
-    <div class="resource-card" data-card data-cat="White Paper" data-text="Glass Batch Chemistry with Aragonite furnace efficiency batch homogeneity CO2 accounting"><div class="top"><div class="cat">White Paper</div></div><h3>Glass Batch Chemistry with Aragonite</h3><p>Furnace efficiency, batch homogeneity and CO&#8322; accounting in modern glass.</p><div class="ind">Industry &middot; Glass</div><div class="spacer"></div><a class="btn btn-primary" href="whitepaper-glass-batch-chemistry.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:.4rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>View / Print PDF</a></div>
-    <div class="resource-card" data-card data-cat="Application Guide" data-text="Aragonite in Organic Agriculture OMRI certified usage application rates trial program guidance"><div class="top"><div class="cat">Application Guide</div></div><h3>Aragonite in Organic Agriculture</h3><p>OMRI-certified usage, application rates and trial program guidance.</p><div class="ind">Industry &middot; Agriculture</div><div class="spacer"></div><a class="btn btn-outline" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Application Guide" data-text="Water Treatment Media Selection Guide industrial municipal systems"><div class="top"><div class="cat">Application Guide</div><div class="gated"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Gated</div></div><h3>Water Treatment Media &mdash; Selection Guide</h3><p>Selecting aragonite media for industrial and municipal systems.</p><div class="ind">Industry &middot; Water Treatment</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request access</a></div>
-    <div class="resource-card" data-card data-cat="Application Guide" data-text="Polymer Filler Compatibility Matrix coupling dispersion processing notes"><div class="top"><div class="cat">Application Guide</div></div><h3>Polymer Filler Compatibility Matrix</h3><p>Coupling, dispersion and processing notes for common polymer systems.</p><div class="ind">Industry &middot; Polymers</div><div class="spacer"></div><a class="btn btn-outline" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="Brochure" data-text="Ocean-Renewed Sourcing Overview Bahamas origin renewable nature"><div class="top"><div class="cat">Brochure</div></div><h3>Ocean-Renewed Sourcing Overview</h3><p>The Bahamas origin and renewable nature of oolitic aragonite formation.</p><div class="ind">Industry &middot; All</div><div class="spacer"></div><a class="btn btn-outline" href="contact.html?type=download">Request PDF</a></div>
-    <div class="resource-card" data-card data-cat="White Paper" data-text="Carbon-Negative Mineral Strategy framework lifecycle roadmaps"><div class="top"><div class="cat">White Paper</div></div><h3>Carbon-Negative Mineral Strategy</h3><p>Framework for evaluating aragonite within carbon-negative roadmaps.</p><div class="ind">Industry &middot; Sustainability</div><div class="spacer"></div><a class="btn btn-primary" href="whitepaper-carbon-negative-strategy.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;margin-right:.4rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>View / Print PDF</a></div>
-    <div class="resource-card" data-card data-cat="Case Study" data-text="Case Study Vineyard Calcium Program specialty crop calcium amendment trial"><div class="top"><div class="cat">Case Study</div><div class="gated"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Gated</div></div><h3>Case Study &mdash; Vineyard Calcium Program</h3><p>Specialty crop calcium amendment trial summary.</p><div class="ind">Industry &middot; Agriculture</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request access</a></div>
-    <div class="resource-card" data-card data-cat="Case Study" data-text="Case Study Architectural Coatings Trial whiteness rheology evaluation"><div class="top"><div class="cat">Case Study</div><div class="gated"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Gated</div></div><h3>Case Study &mdash; Architectural Coatings Trial</h3><p>Whiteness and rheology evaluation in interior architectural coatings.</p><div class="ind">Industry &middot; Coatings</div><div class="spacer"></div><a class="btn btn-primary" href="contact.html?type=download">Request access</a></div>
-    <div class="resource-card" data-card data-cat="Presentation" data-text="Investor Procurement Overview capacity certifications global supply overview"><div class="top"><div class="cat">Presentation</div></div><h3>Investor &amp; Procurement Overview</h3><p>Capacity, certifications and global supply overview.</p><div class="ind">Industry &middot; All</div><div class="spacer"></div><a class="btn btn-outline" href="contact.html?type=download">Request PDF</a></div>
-  </div>
-  <p data-empty="#resourceGrid" style="display:none;margin-top:2rem;color:hsl(var(--muted-foreground))">No resources match your search.</p>
-</section>
+<div style="font-family: var(--font-sans); color: var(--ink); background: var(--bone); min-height: 100vh;">
+  <div class="dc-sitenav">
 
-<!-- ================= KNOWLEDGE (merged) ================= -->
-<section class="band-secondary" id="knowledge">
-  <div class="container-wide section-lg">
-    <div class="section-head"><p class="eyebrow">Knowledge Center</p><h2 class="display-2 text-balance">Featured articles</h2></div>
-    <div class="grid grid-3 mt-head">
-      <div class="article-card"><div class="thumb"><div class="grid-bg"></div><div class="cat">Fundamentals</div></div><div class="body"><div class="t text-balance">What is Aragonite?</div><p>An overview of aragonite's crystal structure, formation, and why oolitic aragonite is different.</p></div></div>
-      <a class="article-card" href="science.html#why-aragonite"><div class="thumb"><div class="grid-bg"></div><div class="cat">Comparison</div></div><div class="body"><div class="t text-balance">Aragonite vs Limestone</div><p>A side-by-side technical comparison of aragonite and conventional calcite limestone.</p></div></a>
-      <a class="article-card" href="industries.html#glass"><div class="thumb"><div class="grid-bg"></div><div class="cat">Glass</div></div><div class="body"><div class="t text-balance">Aragonite in Glass Manufacturing</div><p>How high-purity aragonite supports modern glass batch chemistry, melt efficiency and clarity.</p></div></a>
-      <a class="article-card" href="industries.html#agriculture"><div class="thumb"><div class="grid-bg"></div><div class="cat">Agriculture</div></div><div class="body"><div class="t text-balance">Aragonite for Agriculture</div><p>Calcium nutrition, pH correction and soil biology with ocean-renewed aragonite.</p></div></a>
-      <a class="article-card" href="industries.html#water-treatment"><div class="thumb"><div class="grid-bg"></div><div class="cat">Water</div></div><div class="body"><div class="t text-balance">Aragonite for Water Treatment</div><p>Buffering, phosphorus interactions and natural alternatives in water systems.</p></div></a>
-      <a class="article-card" href="science.html#carbon-negative"><div class="thumb"><div class="grid-bg"></div><div class="cat">Sustainability</div></div><div class="body"><div class="t text-balance">Carbon Negative Minerals</div><p>Ocean renewal, lifecycle thinking and the carbon-negative mineral roadmap.</p></div></a>
-    </div>
-  </div>
-</section>
+<div style="position: sticky; top: 0; z-index: 50; background: #0d141c; border-bottom: 1px solid rgba(247,244,237,0.14); font-family: var(--font-sans);">
+  <div class="r-shell" style="max-width: 1440px; margin: 0 auto; height: 74px; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 36px;">
+      <a href="index.html" style="display: flex; align-items: center; border-bottom: none; flex-shrink: 0;"><img src="assets/aragocor-logo.png" alt="Aragocor Minerals" style="height: 42px; display: block;"></a>
+      <div style="display: flex; align-items: center; gap: 22px;">
 
-<!-- ================= GLOSSARY (merged) ================= -->
-<section class="container-wide section-lg">
-  <div class="section-head"><p class="eyebrow">Glossary</p><h2 class="display-2 text-balance">A precise vocabulary</h2></div>
-  <dl class="glossary">
-    <div><dt>Aragonite</dt><dd>An orthorhombic polymorph of calcium carbonate (CaCO&#8323;). The mineral form AragoCor supplies.</dd></div>
-    <div><dt>Calcite</dt><dd>The most common, trigonal polymorph of CaCO&#8323;. The dominant mineral in conventional limestone.</dd></div>
-    <div><dt>Oolitic</dt><dd>Composed of small, concentrically layered spheres formed by mineral precipitation around microscopic nuclei.</dd></div>
-    <div><dt>OMRI</dt><dd>Organic Materials Review Institute &mdash; certification body for inputs approved for organic agriculture.</dd></div>
-    <div><dt>LCA</dt><dd>Life Cycle Analysis &mdash; formal accounting of environmental impacts across a product's lifecycle.</dd></div>
-    <div><dt>XRD</dt><dd>X-ray Diffraction &mdash; technique used to identify mineral phases.</dd></div>
-    <div><dt>EDS</dt><dd>Energy-Dispersive Spectroscopy &mdash; technique used for elemental analysis.</dd></div>
-  </dl>
-</section>
+        <div style="position: relative;">
+          <a class="navlink" href="products.html" style="color: rgba(247,244,237,0.85); font-size: 14.5px; font-weight: 500; padding: 8px 0; border-bottom: none; display: inline-block;">Products</a>
+          
+        </div>
 
-<!-- ================= CTA BANNER ================= -->
-<section class="container-wide section-lg">
-  <div class="cta-banner">
-    <div class="aurora-bg"></div><div class="blob"></div>
-    <div class="cta-inner">
-      <div>
-        <p class="eyebrow">Next step</p>
-        <h2 class="display-2 text-balance">Specify aragonite in your next formulation.</h2>
-        <p class="lead">Request a technical sample, talk to an applications engineer, or download the technical data package.</p>
-      </div>
-      <div class="cta-actions">
-        <a class="btn btn-lg btn-accent" href="contact.html?type=sample">Request Sample <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a class="btn btn-lg btn-outline-light" href="resources.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Technical Data</a>
+        <div style="position: relative;">
+          <a class="navlink" href="industries.html" style="color: rgba(247,244,237,0.85); font-size: 14.5px; font-weight: 500; padding: 8px 0; border-bottom: none; display: inline-block;">Industries</a>
+          
+        </div>
+
+        <div style="position: relative;">
+          <a class="navlink" href="sustainability.html" style="color: rgba(247,244,237,0.85); font-size: 14.5px; font-weight: 500; padding: 8px 0; border-bottom: none; display: inline-block;">Sustainability</a>
+          
+        </div>
+
+        <div style="position: relative;">
+          <a class="navlink" href="resources.html" style="color: rgba(247,244,237,0.85); font-size: 14.5px; font-weight: 500; padding: 8px 0; border-bottom: none; display: inline-block;">Resources</a>
+          <div style="position: absolute; left: 0; bottom: -1px; width: 100%; height: 2px; background: var(--bone);"></div>
+        </div>
+
+        <div style="position: relative;">
+          <a class="navlink" href="about.html" style="color: rgba(247,244,237,0.85); font-size: 14.5px; font-weight: 500; padding: 8px 0; border-bottom: none; display: inline-block;">About</a>
+          
+        </div>
+
+        <div style="position: relative;">
+          <a class="navlink" href="contact.html" style="color: rgba(247,244,237,0.85); font-size: 14.5px; font-weight: 500; padding: 8px 0; border-bottom: none; display: inline-block;">Contact</a>
+          
+        </div>
       </div>
     </div>
+    <a class="btn-ink" href="contact.html" style="background: var(--bone); color: var(--ink); height: 44px; padding: 0 20px; border-radius: 4px; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; border: none; border-bottom: none; white-space: nowrap; flex-shrink: 0; transition: background 220ms var(--ease-tide);">Request bulk pricing
+      <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
   </div>
-</section>
-
-</main>
-<div id="footer-mount"></div>
 </div>
-<script src="script.js"></script>
+</div>
+
+  
+  <div class="r-shell" style="max-width: 1440px; margin: 0 auto; padding: 88px 40px 40px;">
+    <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">Technical data &amp; resources</div>
+    <h1 class="r-h1" style="font-family: var(--font-serif); font-size: 60px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; margin: 16px 0 24px; max-width: 900px;">Every number, methods cited.</h1>
+    <p style="font-size: 19px; line-height: 1.55; max-width: 680px; color: var(--fg-2); margin: 0;">Data sheets, safety documents, certificates of analysis, and application notes for every grade. No proprietary blends, no asterisks — the spec is the spec.</p>
+  </div>
+
+  
+  <div class="r-shell r-grid-2" style="max-width: 1440px; margin: 0 auto; padding: 24px 40px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+
+    
+    <div style="background: var(--ink); border-radius: 8px; padding: 40px; color: var(--bone); position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: url('assets/process-qc.jpg') center/cover; opacity: 0.26;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(140deg, rgba(14,53,64,0.92) 0%, rgba(14,53,64,0.78) 100%);"></div>
+      <div style="position: relative;">
+        <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(247,244,237,0.6); margin-bottom: 8px;">Representative analysis · oolitic aragonite</div>
+        <h2 class="r-h2" style="font-family: var(--font-serif); font-size: 28px; font-weight: 600; letter-spacing: -0.015em; color: var(--bone); margin: 0 0 24px;">Every batch ships with its numbers.</h2>
+        <div style="font-family: var(--font-mono); font-size: 14px;">
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">CaCO₃</span>
+              <span style="color: var(--bone);">97.8%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">MgCO₃</span>
+              <span style="color: var(--bone);">≤ 0.9%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">SiO₂</span>
+              <span style="color: var(--bone);">≤ 0.6%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Fe₂O₃</span>
+              <span style="color: var(--bone);">≤ 0.04%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Al₂O₃</span>
+              <span style="color: var(--bone);">≤ 0.10%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Na₂O + K₂O</span>
+              <span style="color: var(--bone);">≤ 0.30%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Loss on ignition</span>
+              <span style="color: var(--bone);">~ 43%</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Specific gravity</span>
+              <span style="color: var(--bone);">2.93</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Whiteness</span>
+              <span style="color: var(--bone);">92–94 (ISO)</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Hardness</span>
+              <span style="color: var(--bone);">3.5–4.0 Mohs</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Moisture</span>
+              <span style="color: var(--bone);">< 0.3% as shipped</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Surface area</span>
+              <span style="color: var(--bone);">1.0–2.5 m²/g</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Crystal system</span>
+              <span style="color: var(--bone);">Orthorhombic</span>
+            </div>
+          
+            <div style="display: flex; justify-content: space-between; padding: 14px 0; border-top: 1px solid rgba(247,244,237,0.15);">
+              <span style="color: rgba(247,244,237,0.7);">Available sizing</span>
+              <span style="color: var(--bone);">20–325 U.S. mesh</span>
+            </div>
+          
+        </div>
+        <a class="btn-ar btn-boneline" href="technical-data-sheet.html" style="margin-top: 28px; background: transparent; color: var(--bone); height: 46px; padding: 0 22px; border-radius: 4px; font-size: 14.5px; font-weight: 500; display: inline-flex; align-items: center; border: 1px solid rgba(247,244,237,0.4);">Open the technical data sheet</a>
+      </div>
+    </div>
+
+    
+    <div>
+      <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">Document library</div>
+      <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+        
+          <a class="doc-row" href="technical-data-sheet.html" target="_blank" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-top: 1px solid var(--ink-08); color: var(--ink);">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="1.5" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 500;">Technical data sheet — oolitic aragonite</div>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.02em;">Rev 2026.1 · view & save as PDF</div>
+            </div>
+            <svg class="dl-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.5" style="flex-shrink:0; transition: color 220ms var(--ease-tide);"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        
+          <a class="doc-row" href="assets/docs/aragonite-vs-limestone-technical-brief.pdf" target="_blank" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-top: 1px solid var(--ink-08); color: var(--ink);">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="1.5" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 500;">Aragonite vs. limestone — technical brief</div>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.02em;">PDF · Available now</div>
+            </div>
+            <svg class="dl-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.5" style="flex-shrink:0; transition: color 220ms var(--ease-tide);"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        
+          <a class="doc-row" href="assets/docs/glass-batch-chemistry-with-aragonite.pdf" target="_blank" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-top: 1px solid var(--ink-08); color: var(--ink);">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="1.5" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 500;">Glass batch chemistry with aragonite</div>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.02em;">PDF · Available now</div>
+            </div>
+            <svg class="dl-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.5" style="flex-shrink:0; transition: color 220ms var(--ease-tide);"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        
+          <a class="doc-row" href="contact.html" target="_blank" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-top: 1px solid var(--ink-08); color: var(--ink);">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="1.5" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 500;">Safety data sheet (SDS)</div>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.02em;">PDF · On request · GHS format</div>
+            </div>
+            <svg class="dl-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.5" style="flex-shrink:0; transition: color 220ms var(--ease-tide);"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        
+          <a class="doc-row" href="contact.html" target="_blank" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-top: 1px solid var(--ink-08); color: var(--ink);">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="1.5" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 500;">Certificate of analysis — current lot</div>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.02em;">PDF · On request</div>
+            </div>
+            <svg class="dl-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.5" style="flex-shrink:0; transition: color 220ms var(--ease-tide);"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        
+          <a class="doc-row" href="contact.html" target="_blank" style="display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-top: 1px solid var(--ink-08); color: var(--ink);">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="1.5" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
+            <div style="flex: 1;">
+              <div style="font-size: 15px; font-weight: 500;">Particle sizing — 20 to 325 U.S. mesh</div>
+              <div style="font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); letter-spacing: 0.02em;">PDF · On request</div>
+            </div>
+            <svg class="dl-icon" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="1.5" style="flex-shrink:0; transition: color 220ms var(--ease-tide);"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="background: var(--paper); border-top: 1px solid var(--ink-08); border-bottom: 1px solid var(--ink-08);">
+    <div class="r-shell" style="max-width: 1440px; margin: 0 auto; padding: 88px 40px;">
+      <div class="r-grid-2" style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px; align-items: flex-start;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">Head-to-head</div>
+          <h2 class="r-h2" style="font-family: var(--font-serif); font-size: 40px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; margin: 14px 0 20px;">Aragonite vs. dolomitic lime.</h2>
+          <p style="font-size: 15.5px; line-height: 1.65; color: var(--fg-2); margin: 0;">Limestone is mined and ground. Aragonite is precipitated by living oceans and harvested gently. The difference shows up in dissolution rate, the pH ceiling, and the magnesium-to-calcium ratio your crop actually wants.</p>
+        </div>
+        <div class="r-tablewrap"><table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding: 0 14px 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink);"></th>
+              <th style="text-align: left; padding: 0 14px 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink); border-bottom: 1.5px solid var(--ink);">ARAGOCOR ARAGONITE</th>
+              <th style="text-align: left; padding: 0 14px 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink);">DOLOMITIC LIME</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Mineral form</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">Aragonite (orthorhombic)</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Calcite + dolomite</td>
+              </tr>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">CaCO₃ purity</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">≥ 98.4%</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">50–60% (Ca eq.)</td>
+              </tr>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">pH ceiling</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">8.2 — soft buffer</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">9.0+ — hard spike</td>
+              </tr>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Mg load</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">0.6% — clean</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">20%+ — competes with K</td>
+              </tr>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Dissolution</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">Demand-driven</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Slow, indiscriminate</td>
+              </tr>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Origin</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">Ocean-precipitated</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Mined, kilned</td>
+              </tr>
+            
+              <tr>
+                <td style="padding: 16px 14px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Trace minerals</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--ink); border-top: 1px solid var(--ink-08); background: rgba(107,143,71,0.07);">Marine chelates</td>
+                <td style="padding: 16px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Quarry overburden</td>
+              </tr>
+            
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="r-shell" style="max-width: 1440px; margin: 0 auto; padding: 88px 40px;">
+    <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2);">Application</div>
+    <h2 class="r-h2" style="font-family: var(--font-serif); font-size: 40px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.1; margin: 14px 0 12px; max-width: 640px;">Rate tables by use case.</h2>
+    <p style="font-size: 15.5px; line-height: 1.6; color: var(--fg-2); margin: 0 0 40px; max-width: 560px;">Because aragonite buffers on demand, windows are forgiving. Starting rates below; full tables by crop and soil class in the application guide.</p>
+    <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+      <div class="r-data" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;">
+        <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; border-bottom: 1.5px solid var(--ink);">Use case</div>
+        <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; border-bottom: 1.5px solid var(--ink);">Rate</div>
+        <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; border-bottom: 1.5px solid var(--ink);">Timing</div>
+        <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; border-bottom: 1.5px solid var(--ink);">Grade</div>
+        
+          <div style="padding: 16px 22px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Raised bed / vegetable</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); border-top: 1px solid var(--ink-08);">1 cup / 4 sq ft</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Bed turnover</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--tide); border-top: 1px solid var(--ink-08);">RB-CAL</div>
+        
+          <div style="padding: 16px 22px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Row crop (broadcast)</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); border-top: 1px solid var(--ink-08);">400–800 lb / acre</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Pre-plant</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--tide); border-top: 1px solid var(--ink-08);">AG-CAL</div>
+        
+          <div style="padding: 16px 22px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Established turf</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); border-top: 1px solid var(--ink-08);">10–20 lb / 1000 sq ft</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Top-dress</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--tide); border-top: 1px solid var(--ink-08);">TF-CAL</div>
+        
+          <div style="padding: 16px 22px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Coco / peat media</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); border-top: 1px solid var(--ink-08);">5–10% v/v</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">At mix</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--tide); border-top: 1px solid var(--ink-08);">CB-CAL</div>
+        
+          <div style="padding: 16px 22px; font-size: 14.5px; font-weight: 500; border-top: 1px solid var(--ink-08);">Water remineralization</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); border-top: 1px solid var(--ink-08);">Per flow spec</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--fg-2); border-top: 1px solid var(--ink-08);">Continuous</div>
+          <div style="padding: 16px 22px; font-family: var(--font-mono); font-size: 13.5px; color: var(--tide); border-top: 1px solid var(--ink-08);">WT-CAL</div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="position: relative; overflow: hidden; background: radial-gradient(ellipse at 25% 50%, #294C57 0%, #0E3540 72%);">
+    <div class="r-shell" style="position: relative; max-width: 1440px; margin: 0 auto; padding: 80px 40px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+      <div>
+        <h2 class="r-h2" style="font-family: var(--font-serif); font-size: 38px; font-weight: 600; letter-spacing: -0.015em; color: var(--bone); margin: 0 0 8px;">Need a document that isn't here?</h2>
+        <p style="font-size: 16px; color: rgba(247,244,237,0.8); margin: 0;">Our technical team can pull a lot-specific COA or a custom spec sheet on request.</p>
+      </div>
+      <a class="btn-ar btn-bone" href="contact.html" style="background: var(--bone); color: var(--ink); height: 52px; padding: 0 28px; border-radius: 4px; font-size: 16px; font-weight: 500; display: inline-flex; align-items: center; border: none;">Contact technical support</a>
+    </div>
+  </div>
+
+  <div class="dc-sitefooter">
+
+<div style="background: var(--ink); color: rgba(247,244,237,0.65); font-family: var(--font-sans);">
+  <div class="r-shell" style="max-width: 1440px; margin: 0 auto; padding: 72px 40px 36px;">
+    <div class="r-data" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.1fr; gap: 40px;">
+      <div>
+        <img src="assets/aragocor-logo.png" alt="Aragocor Minerals" style="height: 48px; display: block;">
+        <p style="margin: 20px 0 0; font-size: 13.5px; line-height: 1.65; max-width: 260px;">Premium Bahamian-harvested oolitic aragonite for industrial and agricultural applications around the world.</p>
+        <div style="margin-top: 26px; max-width: 260px;">
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--bone); margin-bottom: 12px;">SUSTAINABLY SOURCED BY</div>
+          <img src="assets/aragosan-logo.png" alt="Aragosan Minerals Limited" style="display: block; width: 180px; height: auto; margin-bottom: 14px;">
+          <p style="font-size: 13.5px; line-height: 1.65; color: rgba(247,244,237,0.65); margin: 0;">Our oolitic aragonite is sustainably harvested in the Bahamas and sourced through Aragosan Minerals Limited.</p>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--bone); margin-bottom: 18px;">CONTACT US</div>
+        <div style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.5; margin-bottom: 14px;"><svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="rgba(247,244,237,0.55)" stroke-width="1.5" style="flex-shrink:0; margin-top:2px;"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span>2453 Grand Canal Blvd. Ste 200<br>Stockton, CA 95814</span></div>
+        <div style="display: flex; gap: 10px; font-size: 13.5px; margin-bottom: 14px;"><svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="rgba(247,244,237,0.55)" stroke-width="1.5" style="flex-shrink:0;"><path d="M4 5a2 2 0 0 1 2-2h2l2 5-2 1.5a11 11 0 0 0 5 5L16 12l5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 4 5Z"></path></svg><a class="foot-link" href="tel:2094870110" style="color: rgba(247,244,237,0.75); border-bottom: none;">209-487-0110</a></div>
+        <div style="display: flex; gap: 10px; font-size: 13.5px;"><svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="rgba(247,244,237,0.55)" stroke-width="1.5" style="flex-shrink:0;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><a class="foot-link" href="mailto:info@aragocorminerals.com" style="color: rgba(247,244,237,0.75); border-bottom: none;">info@aragocorminerals.com</a></div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--bone); margin-bottom: 18px;">QUICK LINKS</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 13.5px;">
+          <a class="foot-link" href="products.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Products</a>
+          <a class="foot-link" href="industries.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Industries</a>
+          <a class="foot-link" href="sustainability.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Sustainability</a>
+          <a class="foot-link" href="resources.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Technical data</a>
+          <a class="foot-link" href="about.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">About us</a>
+          <a class="foot-link" href="contact.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--bone); margin-bottom: 18px;">RESOURCES</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 13.5px;">
+          <a class="foot-link" href="resources.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Technical data sheets</a>
+          <a class="foot-link" href="resources.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">SDS library</a>
+          <a class="foot-link" href="resources.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Certificates</a>
+          <a class="foot-link" href="resources.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">Application notes</a>
+          <a class="foot-link" href="resources.html" style="color: rgba(247,244,237,0.65); border-bottom: none;">News &amp; updates</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--bone); margin-bottom: 18px;">REQUEST INFORMATION</div>
+        <p style="font-size: 13px; line-height: 1.5; margin: 0 0 16px;">Scan to reach the Aragocor technical library.</p>
+        <div style="width: 108px; height: 108px; background: var(--bone); border-radius: 6px; padding: 9px;">
+          <div class="r-grid-3" style="width: 100%; height: 100%; display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(9, 1fr); gap: 1px;">
+            <div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div>
+            <div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div>
+            <div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div>
+            <div></div><div></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div></div><div></div>
+            <div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div>
+            <div></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div></div>
+            <div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div>
+            <div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div></div><div></div><div style="background: var(--ink);"></div><div></div><div></div><div style="background: var(--ink);"></div>
+            <div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div style="background: var(--ink);"></div><div></div><div style="background: var(--ink);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(247,244,237,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: rgba(247,244,237,0.55);">
+      <span>© 2026 ARAGOCOR MINERALS LLC · ALL RIGHTS RESERVED</span>
+      <span style="color: rgba(247,244,237,0.7);">BAHAMAS-BORN · OCEAN-FORMED · INDUSTRY-TRUSTED</span>
+      <span style="display: flex; gap: 20px;"><a class="foot-link" href="#" style="color: rgba(247,244,237,0.55); border-bottom: none;">Privacy policy</a><a class="foot-link" href="#" style="color: rgba(247,244,237,0.55); border-bottom: none;">Terms of use</a></span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
 </body>
 </html>
