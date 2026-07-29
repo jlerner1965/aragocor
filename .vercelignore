@@ -1,0 +1,25 @@
+# Only the eight static pages + their assets ship. Everything below is from
+# other builds or is dev-only, and the eight pages never reference any of it.
+
+# Design-source templates and transpiler inputs
+*.dc.html
+_source/
+
+# Oversized standalone exports and the unrelated Next.js app archive
+Aragocor Minerals Homepage (1).html
+Aragocor Site Navigation (2).html
+aragocor-minerals-website-code.zip
+
+# Alternate/abandoned site build and its assets
+site/
+images/
+styles.css
+script.js
+doc-page.js
+science.html
+whitepaper-*.html
+
+# Dev docs and other-host config
+README.md
+CLAUDE.md
+netlify.toml
