@@ -262,7 +262,7 @@
           <a class="btn-ar btn-outline" href="resources.html" style="background: transparent; color: var(--ink); height: 48px; padding: 0 24px; border-radius: 4px; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-strong);">Download bulk catalog</a>
         </div>
       </div>
-      <div style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+      <div class="r-tablewrap" style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
         <div class="r-data" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr;">
           <div style="padding: 16px 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink); text-transform: uppercase;">Grade</div>
           <div style="padding: 16px 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); border-bottom: 1.5px solid var(--ink); text-transform: uppercase;">Particle</div>
@@ -379,6 +379,58 @@
 </div>
 </div>
 </div>
+
+<script>
+/* Mobile hamburger nav (built at runtime; no framework). Styles live in site.css. */
+(function () {
+  var nav = document.querySelector('.dc-sitenav');
+  if (!nav) return;
+  var wrap = nav.firstElementChild;        // sticky bar wrapper (positioning context)
+  var bar = nav.querySelector('.r-shell'); // the flex bar
+  if (!wrap || !bar) return;
+
+  var toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'nav-toggle';
+  toggle.setAttribute('aria-label', 'Open menu');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.textContent = '☰';           // hamburger
+  bar.appendChild(toggle);
+
+  var panel = document.createElement('div');
+  panel.className = 'nav-mobile';
+  nav.querySelectorAll('.navlink').forEach(function (a) {
+    var item = document.createElement('a');
+    item.href = a.getAttribute('href');
+    item.textContent = (a.textContent || '').trim();
+    if (a.parentNode && a.parentNode.querySelector('div')) item.className = 'is-active';
+    panel.appendChild(item);
+  });
+  var cta = document.createElement('a');
+  cta.href = 'contact.html';
+  cta.className = 'nav-mobile-cta';
+  cta.textContent = 'Request bulk pricing';
+  panel.appendChild(cta);
+  wrap.appendChild(panel);
+
+  function setOpen(open) {
+    panel.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    toggle.textContent = open ? '✕' : '☰'; // X / hamburger
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(!panel.classList.contains('open'));
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setOpen(false);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) setOpen(false);
+  });
+})();
+</script>
 
 </body>
 </html>
