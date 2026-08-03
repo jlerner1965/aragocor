@@ -101,15 +101,15 @@
   
   <div class="r-shell" style="max-width: 1440px; margin: 0 auto; padding: 0 40px 48px;">
     <div class="r-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
-      <div class="rt-card" style="border: 1px solid var(--border-strong); border-radius: 8px; padding: 24px;">
+      <div class="rt-card" role="button" tabindex="0" aria-label="Request bulk pricing — jump to form" data-interest="bulk" style="border: 1px solid var(--border-strong); border-radius: 8px; padding: 24px;">
         <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; margin-bottom: 6px;">Request bulk pricing</div>
         <div style="font-size: 13.5px; color: var(--fg-2); line-height: 1.5;">Ton and container quotes, delivered freight-inclusive.</div>
       </div>
-      <div class="rt-card" style="border: 1px solid var(--border-strong); border-radius: 8px; padding: 24px;">
+      <div class="rt-card" role="button" tabindex="0" aria-label="Request a sample — jump to form" data-interest="sample" style="border: 1px solid var(--border-strong); border-radius: 8px; padding: 24px;">
         <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; margin-bottom: 6px;">Request a sample</div>
         <div style="font-size: 13.5px; color: var(--fg-2); line-height: 1.5;">A graded sample plus the matching COA, shipped to you.</div>
       </div>
-      <div class="rt-card" style="border: 1px solid var(--border-strong); border-radius: 8px; padding: 24px;">
+      <div class="rt-card" role="button" tabindex="0" aria-label="Talk to an agronomist — jump to form" data-interest="agronomy" style="border: 1px solid var(--border-strong); border-radius: 8px; padding: 24px;">
         <div style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; margin-bottom: 6px;">Talk to an agronomist</div>
         <div style="font-size: 13.5px; color: var(--fg-2); line-height: 1.5;">Rate math, soil reports, and custom blend guidance.</div>
       </div>
@@ -117,28 +117,80 @@
   </div>
 
   
-  <div class="r-shell r-grid-2" style="max-width: 1440px; margin: 0 auto; padding: 0 40px 96px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start;">
+  <div id="contact" class="r-shell r-grid-2" style="max-width: 1440px; margin: 0 auto; padding: 0 40px 96px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start;">
 
 
-    <!-- TODO (required before go-live): replace YOUR_FORM_ID with a real Formspree
-         form ID (https://formspree.io -> your form -> endpoint), or swap the action
-         for another handler. Until this is set, submissions will fail. -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 40px; box-shadow: var(--shadow-1);">
-      <div class="r-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
-        <div><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Full name</label><input class="fld" type="text" placeholder="Jane Rivera" name="name" required></div>
-        <div><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Company</label><input class="fld" type="text" placeholder="Rivera Ag Supply" name="company"></div>
-        <div><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Email</label><input class="fld" type="email" placeholder="jane@company.com" name="email" required></div>
-        <div><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Phone</label><input class="fld" type="tel" placeholder="(209) 555-0142" name="phone"></div>
-        <div style="grid-column: 1 / -1;"><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Interest</label>
-          <select class="fld" name="interest"><option>Bulk pricing</option><option>Product sample</option><option>Agronomy / application</option><option>Custom blend</option><option>Distribution / wholesale</option></select>
+    <!-- Formspree AJAX form. To go live, replace YOUR_FORM_ID below with a real
+         Formspree form ID (https://formspree.io -> your form -> endpoint). That is
+         the only change required — all validation, success/error states, honeypot
+         spam protection, and conversion tracking are handled in the script below. -->
+    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate style="background: var(--paper); border: 1px solid var(--border); border-radius: 8px; padding: 40px; box-shadow: var(--shadow-1);">
+
+      <!-- Success state (revealed on successful submit) -->
+      <div id="form-success" role="status" aria-live="polite" hidden style="display: none; text-align: center; padding: 24px 8px;">
+        <div style="width: 56px; height: 56px; margin: 0 auto 18px; border-radius: 50%; background: rgba(73,97,60,0.12); display: flex; align-items: center; justify-content: center;">
+          <svg width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="var(--root)" stroke-width="2"><path d="m5 13 4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </div>
-        <div style="grid-column: 1 / -1;"><label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Details</label><textarea class="fld" placeholder="Grade, volume, timing, and delivery location..." name="details" required></textarea></div>
+        <div style="font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 8px;">Request received.</div>
+        <p style="font-size: 15px; line-height: 1.55; color: var(--fg-2); margin: 0 auto; max-width: 380px;">Thanks — your details are with our technical team. We usually reply within one business day. For anything urgent, call <a href="tel:2094870110" style="color: var(--ink); font-weight: 500;">209-487-0110</a>.</p>
       </div>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 24px; flex-wrap: wrap; gap: 16px;">
-        <span style="font-size: 12.5px; color: var(--fg-2);"></span>
-        <button type="submit" class="btn-ar btn-ink" style="background: var(--ink); color: var(--bone); height: 48px; padding: 0 28px; border-radius: 4px; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; border: none;">Send request
-          <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </button>
+
+      <!-- Form body (hidden after success) -->
+      <div id="form-body">
+        <!-- Form-level error banner -->
+        <div id="form-error" role="alert" hidden style="display: none; margin-bottom: 20px; padding: 12px 16px; border: 1px solid rgba(150,40,40,0.35); background: rgba(150,40,40,0.06); border-radius: 4px; font-size: 13.5px; line-height: 1.5; color: #7a2222;"></div>
+
+        <div class="r-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+          <div>
+            <label for="cf-name" style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Full name <span aria-hidden="true" style="color:#9a3535;">*</span></label>
+            <input id="cf-name" class="fld" type="text" placeholder="Jane Rivera" name="name" autocomplete="name" required aria-required="true" aria-describedby="cf-name-err">
+            <span id="cf-name-err" class="fld-err" hidden style="display:none; font-size:12px; color:#9a3535; margin-top:6px;"></span>
+          </div>
+          <div>
+            <label for="cf-company" style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Company</label>
+            <input id="cf-company" class="fld" type="text" placeholder="Rivera Ag Supply" name="company" autocomplete="organization">
+          </div>
+          <div>
+            <label for="cf-email" style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Email <span aria-hidden="true" style="color:#9a3535;">*</span></label>
+            <input id="cf-email" class="fld" type="email" placeholder="jane@company.com" name="email" autocomplete="email" required aria-required="true" aria-describedby="cf-email-err">
+            <span id="cf-email-err" class="fld-err" hidden style="display:none; font-size:12px; color:#9a3535; margin-top:6px;"></span>
+          </div>
+          <div>
+            <label for="cf-phone" style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Phone</label>
+            <input id="cf-phone" class="fld" type="tel" placeholder="(209) 555-0142" name="phone" autocomplete="tel">
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label for="cf-interest" style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Interest</label>
+            <select id="cf-interest" class="fld" name="interest">
+              <option value="Bulk pricing">Bulk pricing</option>
+              <option value="Product sample">Product sample</option>
+              <option value="Agronomy / application">Agronomy / application</option>
+              <option value="Custom blend">Custom blend</option>
+              <option value="Distribution / wholesale">Distribution / wholesale</option>
+            </select>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label for="cf-details" style="display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px;">Details <span aria-hidden="true" style="color:#9a3535;">*</span></label>
+            <textarea id="cf-details" class="fld" placeholder="Grade, volume, timing, and delivery location..." name="details" required aria-required="true" aria-describedby="cf-details-err"></textarea>
+            <span id="cf-details-err" class="fld-err" hidden style="display:none; font-size:12px; color:#9a3535; margin-top:6px;"></span>
+          </div>
+        </div>
+
+        <!-- Honeypot: hidden from users, catches bots. Formspree drops any submission
+             where _gotcha is filled; the JS handler also blocks it client-side. -->
+        <div aria-hidden="true" style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+          <label for="cf-gotcha">Leave this field empty</label>
+          <input id="cf-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <!-- Nicer subject line in the notification email -->
+        <input type="hidden" name="_subject" value="New inquiry — Aragocor Minerals website">
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 24px; flex-wrap: wrap; gap: 16px;">
+          <span style="font-size: 12.5px; color: var(--fg-2);">We reply within one business day.</span>
+          <button id="cf-submit" type="submit" class="btn-ar btn-ink" style="background: var(--ink); color: var(--bone); height: 48px; padding: 0 28px; border-radius: 4px; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; border: none;">Send request
+            <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+        </div>
       </div>
     </form>
 
@@ -279,6 +331,155 @@
   });
   window.addEventListener('resize', function () {
     if (window.innerWidth > 900) setOpen(false);
+  });
+})();
+</script>
+
+<script>
+/* Contact form: validation, AJAX submit to Formspree, success/error states,
+   honeypot spam protection, CTA-driven interest preselect, and a conversion
+   tracking hook. No framework, no build step. */
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+
+  var body    = document.getElementById('form-body');
+  var success = document.getElementById('form-success');
+  var errorEl = document.getElementById('form-error');
+  var submit  = document.getElementById('cf-submit');
+  var select  = document.getElementById('cf-interest');
+
+  // --- CTA-driven preselect -------------------------------------------------
+  // Maps short slugs (from ?interest= query param or a card's data-interest)
+  // to the matching <option> value.
+  var INTEREST = {
+    bulk: 'Bulk pricing', pricing: 'Bulk pricing',
+    sample: 'Product sample',
+    agronomy: 'Agronomy / application', agronomist: 'Agronomy / application',
+    blend: 'Custom blend',
+    wholesale: 'Distribution / wholesale', distribution: 'Distribution / wholesale'
+  };
+  function setInterest(slug) {
+    if (!slug || !select) return false;
+    var val = INTEREST[String(slug).toLowerCase()];
+    if (!val) return false;
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === val) { select.selectedIndex = i; return true; }
+    }
+    return false;
+  }
+  // 1) Preselect from ?interest= (or legacy ?i=) on inbound CTAs from other pages.
+  try {
+    var q = new URLSearchParams(window.location.search);
+    setInterest(q.get('interest') || q.get('i'));
+  } catch (e) {}
+  // 2) The three request-type cards preselect and jump to the form.
+  Array.prototype.forEach.call(document.querySelectorAll('.rt-card[data-interest]'), function (card) {
+    function activate() {
+      setInterest(card.getAttribute('data-interest'));
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var first = document.getElementById('cf-name');
+      if (first) setTimeout(function () { first.focus(); }, 400);
+    }
+    card.addEventListener('click', activate);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+    });
+  });
+
+  // --- Validation -----------------------------------------------------------
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function fieldError(id, msg) {
+    var input = document.getElementById(id);
+    var err = document.getElementById(id + '-err');
+    if (input) { input.setAttribute('aria-invalid', 'true'); input.style.borderColor = '#9a3535'; }
+    if (err) { err.textContent = msg; err.hidden = false; err.style.display = 'block'; }
+  }
+  function clearError(id) {
+    var input = document.getElementById(id);
+    var err = document.getElementById(id + '-err');
+    if (input) { input.removeAttribute('aria-invalid'); input.style.borderColor = ''; }
+    if (err) { err.textContent = ''; err.hidden = true; err.style.display = 'none'; }
+  }
+  ['cf-name', 'cf-email', 'cf-details'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function () { clearError(id); });
+  });
+  function validate() {
+    var ok = true, firstBad = null;
+    var name = document.getElementById('cf-name');
+    var email = document.getElementById('cf-email');
+    var details = document.getElementById('cf-details');
+    clearError('cf-name'); clearError('cf-email'); clearError('cf-details');
+    if (!name.value.trim())      { fieldError('cf-name', 'Please enter your name.'); ok = false; firstBad = firstBad || name; }
+    if (!email.value.trim())     { fieldError('cf-email', 'Please enter your email.'); ok = false; firstBad = firstBad || email; }
+    else if (!EMAIL_RE.test(email.value.trim())) { fieldError('cf-email', 'Please enter a valid email address.'); ok = false; firstBad = firstBad || email; }
+    if (!details.value.trim())   { fieldError('cf-details', 'Tell us a little about what you need.'); ok = false; firstBad = firstBad || details; }
+    if (firstBad) firstBad.focus();
+    return ok;
+  }
+
+  // --- Conversion tracking hook --------------------------------------------
+  // No-ops unless an analytics layer (GA4 gtag / GTM dataLayer) is present.
+  function trackConversion() {
+    var interest = select ? select.value : '';
+    try {
+      if (window.dataLayer) window.dataLayer.push({ event: 'contact_form_submit', form_interest: interest });
+      if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { form_interest: interest });
+    } catch (e) {}
+  }
+
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.hidden = false; errorEl.style.display = 'block';
+  }
+  function showSuccess() {
+    body.style.display = 'none';
+    success.hidden = false; success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorEl.hidden = true; errorEl.style.display = 'none';
+
+    // Honeypot: if a bot filled the hidden field, silently "succeed" and stop.
+    var hp = document.getElementById('cf-gotcha');
+    if (hp && hp.value) { showSuccess(); return; }
+
+    if (!validate()) return;
+
+    // Guard: the Formspree endpoint is still a placeholder. Swap YOUR_FORM_ID
+    // for a real form ID to enable delivery.
+    if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
+      showError('This form isn’t connected yet. Please email info@aragocorminerals.com or call 209-487-0110 and we’ll get right back to you.');
+      return;
+    }
+
+    var original = submit.innerHTML;
+    submit.disabled = true;
+    submit.style.opacity = '0.7';
+    submit.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) { trackConversion(); showSuccess(); return; }
+      return res.json().then(function (data) {
+        var msg = (data && data.errors && data.errors.length)
+          ? data.errors.map(function (x) { return x.message; }).join(' ')
+          : 'Something went wrong sending your request.';
+        throw new Error(msg);
+      });
+    }).catch(function (err) {
+      submit.disabled = false;
+      submit.style.opacity = '';
+      submit.innerHTML = original;
+      showError((err && err.message ? err.message : 'Something went wrong.') +
+        ' You can also email info@aragocorminerals.com directly.');
+    });
   });
 })();
 </script>
