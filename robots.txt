@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aragocor.vercel.app/sitemap.xml
+Sitemap: https://aragocorminerals.com/sitemap.xml
