@@ -463,7 +463,9 @@
   toggle.className = 'nav-toggle';
   toggle.setAttribute('aria-label', 'Open menu');
   toggle.setAttribute('aria-expanded', 'false');
-  toggle.textContent = '☰';           // hamburger
+  var ICON_MENU='<svg width=\'22\' height=\'22\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\'><path d=\'M3 6h18M3 12h18M3 18h18\'/></svg>';
+  var ICON_CLOSE='<svg width=\'22\' height=\'22\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\'><path d=\'M6 6l12 12M18 6L6 18\'/></svg>';
+  toggle.innerHTML = ICON_MENU;           // hamburger
   bar.appendChild(toggle);
 
   var panel = document.createElement('div');
@@ -487,7 +489,7 @@
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    toggle.textContent = open ? '✕' : '☰'; // X / hamburger
+    toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU; // X / hamburger
   }
   toggle.addEventListener('click', function () {
     setOpen(!panel.classList.contains('open'));

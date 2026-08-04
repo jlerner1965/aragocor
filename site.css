@@ -190,6 +190,11 @@ img, video { max-width: 100%; height: auto; }
   background: #0d141c;
   padding: 14px 24px;
   font: 500 14px/1 "Geist", -apple-system, system-ui, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
 }
 .tds-bar a { color: #F7F4ED; text-decoration: none; }
 .tds-bar a:hover { color: #D7C59C; }
@@ -200,7 +205,9 @@ img, video { max-width: 100%; height: auto; }
   box-shadow: 0 12px 40px rgba(14, 42, 51, 0.12);
 }
 @media (max-width: 820px) {
-  .tds-sheet { margin: 16px; }
+  /* The letter-width sheet must shrink to the viewport instead of being clipped
+     by the page overflow guard; the inner grids/tables already reflow/scroll. */
+  .tds-sheet { max-width: 100%; margin: 16px; }
 }
 @media print {
   .tds-bar { display: none; }
